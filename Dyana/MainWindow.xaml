@@ -1,0 +1,41 @@
+﻿<Window x:Class="Dyana.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dyana"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Dyana" Height="300" Width="520">
+    <Grid Background="Black">
+        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="5, 0">
+                    <TextBox x:Name="TxtArrive" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="75" HorizontalAlignment="Center">09:00</TextBox>
+                    <TextBlock Background="Transparent" Foreground="Red">Arrive At</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="5, 0">
+                    <TextBox x:Name="TxtDepart" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="75" HorizontalAlignment="Center">18:00</TextBox>
+                    <TextBlock Background="Transparent" Foreground="Red">Depart At</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="5, 0">
+                    <TextBox x:Name="TxtWorkHour" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="75" HorizontalAlignment="Center">8</TextBox>
+                    <TextBlock Background="Transparent" Foreground="Red" HorizontalAlignment="Center">Work Hour</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="5, 0">
+                    <TextBox x:Name="TxtBreak" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="75" HorizontalAlignment="Center">1</TextBox>
+                    <TextBlock Background="Transparent" Foreground="Red" HorizontalAlignment="Center">Break</TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="5, 0">
+                <TextBlock x:Name="TxtTotal" Background="Transparent" Foreground="Red" FontSize="75" HorizontalAlignment="Center">0</TextBlock>
+                <TextBlock x:Name="TxtExp" Background="Transparent" Foreground="Red" HorizontalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="BtnCalculate" Background="Black" Foreground="White" Width="85" Margin="5" Click="BtnCalculate_Click">Calculate</Button>
+                <Button x:Name="BtnReset" Background="Black" Foreground="White" Width="85" Margin="5" Click="BtnReset_Click">Reset</Button>
+            </StackPanel>
+        </StackPanel>
+</Grid>
+</Window>
