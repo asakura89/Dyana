@@ -58,10 +58,10 @@ namespace Dyana
                 var start = new DateTime(now.Year, now.Month, now.Day, arrhour, arrmin, 00);
                 var end = new DateTime(now.Year, now.Month, now.Day, dephour, depmin, 00);
                 Double hours = end.Subtract(start).TotalHours;
-                TxtTotal.Text = hours.ToString();
-                TxtExp.Text = hours == responsibility ?
+                TxtTotal.Text = hours.ToString("0.00");
+                TxtExp.Text = Math.Abs(hours) == Math.Abs(responsibility) ?
                     "It's time to go home :)" : hours < responsibility ?
-                        "Oy! Work more!" : hours > responsibility && hours > responsibility +1 ?
+                        $"Oy! Work more! should be at {start.AddHours(responsibility).ToString("HH:mm")}" : hours > responsibility && hours > responsibility +1 ?
                             "Overtimeeee... Waaaaaaattttt..." : "Just go home already!";
             }
             catch (Exception ex)
