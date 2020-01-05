@@ -46,12 +46,13 @@ namespace Dyana.Core {
             DateTime now = DateTime.Now;
             var start = new DateTime(now.Year, now.Month, now.Day, arrhour, arrmin, 00);
             var end = new DateTime(now.Year, now.Month, now.Day, dephour, depmin, 00);
-            Double hours = end.Subtract(start).TotalHours;
+            TimeSpan total = end.Subtract(start);
 
             return new DyanaWorkHour {
-                TotalHours = hours,
+                TotalHours = total.Hours,
+                TotalMins = total.Minutes,
                 ResponsibilityHours = responsibility,
-                EndOfResponsibility = start.AddHours(hours)
+                EndOfResponsibility = start.AddHours(responsibility)
             };
         }
 
@@ -61,14 +62,12 @@ namespace Dyana.Core {
         }
 
         public static String GetAppropriateMessage(DyanaWorkHour wh) {
-            String totalHours = wh.TotalHours.ToString("0.00");
-
             if (Math.Abs(wh.TotalHours) == Math.Abs(wh.ResponsibilityHours))
                 return "It's time to go home :)";
             if (wh.TotalHours < wh.ResponsibilityHours)
                 return $"Oy! Work more! should be at {wh.EndOfResponsibility.ToString("HH:mm")}";
             if (wh.TotalHours > wh.ResponsibilityHours && wh.TotalHours > wh.ResponsibilityHours +1)
-                return "Overtimeeee... Waaaaaaattttt...";
+                return $"Overtimeeee by {wh.TotalHours-wh.ResponsibilityHours}h {wh.TotalMins}m Waaaaaaattttt...";
 
             return "Just go home already!";
         }

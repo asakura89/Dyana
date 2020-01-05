@@ -14,7 +14,7 @@ namespace Dyana.View {
                 DyanaWorkHour wh = D.CalculateWorkHours(TxtArrive.Text, TxtDepart.Text, TxtWorkHour.Text, TxtBreak.Text);
                 String message = D.GetAppropriateMessage(wh);
 
-                TxtTotal.Text = wh.TotalHours.ToString("0.00");
+                TxtTotal.Text = $"{wh.TotalHours}h {wh.TotalMins.ToString().PadLeft(2, '0')}m";
                 TxtExp.Text = message;
             }
             catch (Exception ex) {
